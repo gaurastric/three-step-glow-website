@@ -15,15 +15,10 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: 'Who Are We', href: '#who-are-we' },
-    { name: 'Our Mission', href: '#our-mission' },
-    { name: 'Ensuring Workspace', href: '#ensuring-workspace' },
-    { name: 'About', href: '#about' },
-    { name: 'Why Choose Us', href: '#why-choose-us' },
-    { name: 'Services', href: '#services' },
-    { name: 'Our Process', href: '#our-process' },
-    { name: 'FAQs', href: '#faqs' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'HOME', href: '#hero' },
+    { name: 'ABOUT', href: '#about-carousel' },
+    { name: 'SERVICES', href: '#services' },
+    { name: 'CONTACT', href: '#contact' },
   ];
 
   const scrollToSection = (href: string) => {
@@ -42,21 +37,21 @@ const Navigation = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="text-2xl font-bold text-primary">
-              3Step Tech India
+            <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              3STEP TECH INDIA
             </div>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-12">
             {navItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium text-sm relative group"
+                className="text-gray-800 hover:text-transparent hover:bg-gradient-to-r hover:from-blue-400 hover:via-purple-500 hover:to-pink-500 hover:bg-clip-text transition-all duration-300 font-bold text-lg tracking-wider relative group"
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-2 left-0 w-0 h-1 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 transition-all duration-300 group-hover:w-full rounded-full"></span>
               </button>
             ))}
           </div>
@@ -65,9 +60,9 @@ const Navigation = () => {
           <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-primary transition-colors duration-200"
+              className="text-gray-700 hover:text-purple-500 transition-colors duration-200"
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? <X size={28} strokeWidth={3} /> : <Menu size={28} strokeWidth={3} />}
             </button>
           </div>
         </div>
@@ -80,7 +75,7 @@ const Navigation = () => {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="block px-3 py-2 text-gray-700 hover:text-primary transition-colors duration-200 font-medium w-full text-left"
+                  className="block px-3 py-3 text-gray-700 hover:text-transparent hover:bg-gradient-to-r hover:from-blue-400 hover:via-purple-500 hover:to-pink-500 hover:bg-clip-text transition-all duration-300 font-bold text-lg tracking-wider w-full text-left"
                 >
                   {item.name}
                 </button>

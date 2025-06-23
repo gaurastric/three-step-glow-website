@@ -130,58 +130,8 @@ const Sections = () => {
 
   return (
     <>
-      {/* Who Are We */}
-      <section id="who-are-we" className="section-padding" ref={addToRefs}>
-        <div className="max-w-7xl mx-auto">
-          <div className="fade-in-view text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              Who Are We
-            </h2>
-            <div className="glass-card p-8 sm:p-12 max-w-4xl mx-auto">
-              <p className="text-lg sm:text-xl text-gray-700 leading-relaxed">
-                3Step Tech India is a leading provider of workforce solutions, specializing in Contract Staffing, Payrolling, HR Consulting, Talent Development, On-Demand Recruiters, and Outplacement Services. We help businesses find, manage, and develop top talent for long-term success.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Mission */}
-      <section id="our-mission" className="section-padding bg-gradient-to-r from-blue-50 to-indigo-50" ref={addToRefs}>
-        <div className="max-w-7xl mx-auto">
-          <div className="fade-in-view text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              Our Mission
-            </h2>
-            <div className="glass-card p-8 sm:p-12 max-w-4xl mx-auto">
-              <Target className="w-16 h-16 text-primary mx-auto mb-6" />
-              <p className="text-lg sm:text-xl text-gray-700 leading-relaxed">
-                To deliver innovative, flexible, and efficient workforce solutions that empower businesses to focus on growth while we handle their staffing and HR needs.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Ensuring Workspace */}
-      <section id="ensuring-workspace" className="section-padding" ref={addToRefs}>
-        <div className="max-w-7xl mx-auto">
-          <div className="fade-in-view text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              Ensuring Workspace Excellence
-            </h2>
-            <div className="glass-card p-8 sm:p-12 max-w-4xl mx-auto">
-              <Shield className="w-16 h-16 text-primary mx-auto mb-6" />
-              <p className="text-lg sm:text-xl text-gray-700 leading-relaxed">
-                At 3Step Tech India, we specialize in providing innovative workforce solutions that help businesses streamline their talent acquisition, payroll management, and HR operations. Our commitment to excellence ensures your workspace operates at peak efficiency.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* About */}
-      <section id="about" className="section-padding bg-gradient-to-r from-indigo-50 to-purple-50" ref={addToRefs}>
+      <section id="about" className="section-padding" ref={addToRefs}>
         <div className="max-w-7xl mx-auto">
           <div className="fade-in-view text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
@@ -208,7 +158,7 @@ const Sections = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section id="why-choose-us" className="section-padding" ref={addToRefs}>
+      <section id="why-choose-us" className="section-padding bg-gradient-to-r from-blue-50 to-indigo-50" ref={addToRefs}>
         <div className="max-w-7xl mx-auto">
           <div className="fade-in-view text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
@@ -229,7 +179,7 @@ const Sections = () => {
       </section>
 
       {/* Services */}
-      <section id="services" className="section-padding bg-gradient-to-r from-blue-50 to-indigo-50" ref={addToRefs}>
+      <section id="services" className="section-padding" ref={addToRefs}>
         <div className="max-w-7xl mx-auto">
           <div className="fade-in-view text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
@@ -252,7 +202,7 @@ const Sections = () => {
       </section>
 
       {/* Our Process */}
-      <section id="our-process" className="section-padding" ref={addToRefs}>
+      <section id="our-process" className="section-padding bg-gradient-to-r from-indigo-50 to-purple-50" ref={addToRefs}>
         <div className="max-w-7xl mx-auto">
           <div className="fade-in-view text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
@@ -282,7 +232,7 @@ const Sections = () => {
       </section>
 
       {/* FAQs */}
-      <section id="faqs" className="section-padding bg-gradient-to-r from-indigo-50 to-purple-50" ref={addToRefs}>
+      <section id="faqs" className="section-padding" ref={addToRefs}>
         <div className="max-w-4xl mx-auto">
           <div className="fade-in-view text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
@@ -302,7 +252,7 @@ const Sections = () => {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="section-padding" ref={addToRefs}>
+      <section id="contact" className="section-padding bg-gradient-to-r from-blue-50 to-indigo-50" ref={addToRefs}>
         <div className="max-w-7xl mx-auto">
           <div className="fade-in-view text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">

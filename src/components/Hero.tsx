@@ -4,14 +4,14 @@ import { ArrowDown } from 'lucide-react';
 
 const Hero = () => {
   const scrollToNext = () => {
-    const element = document.querySelector('#who-are-we');
+    const element = document.querySelector('#about-carousel');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-indigo-500/10 to-purple-600/20"></div>
       
