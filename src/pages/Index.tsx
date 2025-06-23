@@ -35,7 +35,8 @@ const Index = () => {
       parallaxElements.forEach((element, index) => {
         const speed = 0.5 + (index * 0.1);
         const yPos = -(scrolled * speed);
-        element.style.transform = `translateY(${yPos}px) rotate(${scrolled * 0.01}deg)`;
+        const htmlElement = element as HTMLElement;
+        htmlElement.style.transform = `translateY(${yPos}px) rotate(${scrolled * 0.01}deg)`;
       });
     };
 
