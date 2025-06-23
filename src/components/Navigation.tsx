@@ -30,37 +30,48 @@ const Navigation = () => {
   };
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'glass-nav shadow-lg' : 'bg-transparent'
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+      isScrolled ? 'glass-nav shadow-2xl' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-              3STEP TECH INDIA
-            </div>
+            <img 
+              src="/3step-logo.png" 
+              alt="3Step Tech India" 
+              className="h-12 w-auto floating-animation"
+            />
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-12">
-            {navItems.map((item) => (
+            {navItems.map((item, index) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-800 hover:text-transparent hover:bg-gradient-to-r hover:from-blue-400 hover:via-purple-500 hover:to-pink-500 hover:bg-clip-text transition-all duration-300 font-bold text-lg tracking-wider relative group"
+                className={`text-white/90 hover:text-white hover:text-glow transition-all duration-300 font-bold text-lg tracking-wider relative group stagger-${index + 1}`}
               >
                 {item.name}
-                <span className="absolute -bottom-2 left-0 w-0 h-1 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 transition-all duration-300 group-hover:w-full rounded-full"></span>
+                <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 transition-all duration-500 group-hover:w-full rounded-full shadow-lg shadow-purple-500/50"></span>
               </button>
             ))}
+          </div>
+
+          {/* Secure Logo */}
+          <div className="hidden lg:flex items-center">
+            <img 
+              src="/secure-logo.png" 
+              alt="Digitally Secure" 
+              className="h-10 w-auto pulse-glow"
+            />
           </div>
 
           {/* Mobile menu button */}
           <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-purple-500 transition-colors duration-200"
+              className="text-white/90 hover:text-white transition-colors duration-300"
             >
               {isOpen ? <X size={28} strokeWidth={3} /> : <Menu size={28} strokeWidth={3} />}
             </button>
@@ -69,17 +80,24 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 glass-card mt-2 mb-4">
-              {navItems.map((item) => (
+          <div className="lg:hidden animate-slide-up">
+            <div className="px-2 pt-2 pb-6 space-y-2 glass-card mt-2 mb-4">
+              {navItems.map((item, index) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="block px-3 py-3 text-gray-700 hover:text-transparent hover:bg-gradient-to-r hover:from-blue-400 hover:via-purple-500 hover:to-pink-500 hover:bg-clip-text transition-all duration-300 font-bold text-lg tracking-wider w-full text-left"
+                  className={`block px-4 py-3 text-white/90 hover:text-white hover:text-glow transition-all duration-300 font-bold text-lg tracking-wider w-full text-left rounded-lg hover:bg-white/10 stagger-${index + 1}`}
                 >
                   {item.name}
                 </button>
               ))}
+              <div className="flex justify-center pt-4">
+                <img 
+                  src="/secure-logo.png" 
+                  alt="Digitally Secure" 
+                  className="h-8 w-auto pulse-glow"
+                />
+              </div>
             </div>
           </div>
         )}

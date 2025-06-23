@@ -1,6 +1,6 @@
 
-import React from 'react';
-import { Users, Target, Shield, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { Users, Target, Shield, ChevronLeft, ChevronRight, Brain, Rocket, Globe } from 'lucide-react';
 import {
   Carousel,
   CarouselContent,
@@ -10,50 +10,89 @@ import {
 } from '@/components/ui/carousel';
 
 const AboutCarousel = () => {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll('.scroll-reveal').forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const slides = [
     {
       id: 'who-are-we',
-      title: 'Who Are We',
-      icon: Users,
-      content: '3Step Tech India is a leading provider of workforce solutions, specializing in Contract Staffing, Payrolling, HR Consulting, Talent Development, On-Demand Recruiters, and Outplacement Services. We help businesses find, manage, and develop top talent for long-term success.'
+      title: 'AI-Driven Workforce',
+      icon: Brain,
+      content: 'Leading the future with intelligent staffing solutions, powered by cutting-edge AI technology that transforms how businesses discover, engage, and develop top-tier talent.',
+      gradient: 'from-purple-500 to-blue-500'
     },
     {
       id: 'our-mission',
-      title: 'Our Mission',
-      icon: Target,
-      content: 'To deliver innovative, flexible, and efficient workforce solutions that empower businesses to focus on growth while we handle their staffing and HR needs.'
+      title: 'Mission: Accelerate Growth',
+      icon: Rocket,
+      content: 'Empowering enterprises to achieve exponential growth through revolutionary workforce solutions that eliminate traditional hiring barriers and unlock human potential.',
+      gradient: 'from-blue-500 to-cyan-500'
     },
     {
       id: 'ensuring-workspace',
-      title: 'Ensuring Workspace Excellence',
-      icon: Shield,
-      content: 'At 3Step Tech India, we specialize in providing innovative workforce solutions that help businesses streamline their talent acquisition, payroll management, and HR operations. Our commitment to excellence ensures your workspace operates at peak efficiency.'
+      title: 'Global Excellence',
+      icon: Globe,
+      content: 'Delivering world-class workforce excellence across continents, ensuring seamless talent integration and operational efficiency for the digital age.',
+      gradient: 'from-cyan-500 to-purple-500'
     }
   ];
 
   return (
-    <section id="about-carousel" className="section-padding bg-gradient-to-r from-blue-50 to-indigo-50">
-      <div className="max-w-6xl mx-auto">
-        <div className="fade-in-view text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-            About Our Company
+    <section id="about-carousel" className="section-padding relative overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 to-purple-900/30"></div>
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl floating-animation"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl floating-animation" style={{ animationDelay: '2s' }}></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto">
+        <div className="scroll-reveal text-center mb-20">
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8">
+            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent text-glow">
+              About Innovation
+            </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover who we are, our mission, and how we ensure workspace excellence
+          <p className="text-xl sm:text-2xl text-white/70 max-w-4xl mx-auto leading-relaxed">
+            Pioneering the future of workforce solutions through technology
           </p>
         </div>
 
-        <Carousel className="w-full max-w-5xl mx-auto">
+        <Carousel className="w-full max-w-6xl mx-auto scroll-reveal">
           <CarouselContent>
             {slides.map((slide, index) => (
               <CarouselItem key={slide.id}>
-                <div className="fade-in-view">
-                  <div className="glass-card p-8 sm:p-12 min-h-[400px] flex flex-col items-center justify-center text-center">
-                    <slide.icon className="w-20 h-20 text-primary mb-6 animate-glow" />
-                    <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">
-                      {slide.title}
+                <div className="glass-card p-12 sm:p-16 min-h-[500px] flex flex-col items-center justify-center text-center relative overflow-hidden">
+                  {/* Card background gradient */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${slide.gradient} opacity-5 rounded-2xl`}></div>
+                  
+                  <div className="relative z-10">
+                    <div className="mb-8 relative">
+                      <slide.icon className="w-24 h-24 text-white/90 mx-auto pulse-glow" />
+                      <div className={`absolute inset-0 bg-gradient-to-r ${slide.gradient} w-24 h-24 mx-auto rounded-full blur-xl opacity-30`}></div>
+                    </div>
+                    
+                    <h3 className="text-4xl sm:text-5xl font-bold mb-10">
+                      <span className={`bg-gradient-to-r ${slide.gradient} bg-clip-text text-transparent text-glow`}>
+                        {slide.title}
+                      </span>
                     </h3>
-                    <p className="text-lg sm:text-xl text-gray-700 leading-relaxed max-w-3xl">
+                    
+                    <p className="text-lg sm:text-xl text-white/80 leading-relaxed max-w-3xl font-light">
                       {slide.content}
                     </p>
                   </div>
@@ -62,21 +101,21 @@ const AboutCarousel = () => {
             ))}
           </CarouselContent>
           
-          <CarouselPrevious className="glass-card hover:bg-white/30 transition-all duration-300 -left-12 sm:-left-16">
+          <CarouselPrevious className="glass-card hover:bg-white/20 transition-all duration-300 -left-16 sm:-left-20 border-white/20 text-white/90 hover:text-white">
             <ChevronLeft className="h-6 w-6" />
           </CarouselPrevious>
           
-          <CarouselNext className="glass-card hover:bg-white/30 transition-all duration-300 -right-12 sm:-right-16">
+          <CarouselNext className="glass-card hover:bg-white/20 transition-all duration-300 -right-16 sm:-right-20 border-white/20 text-white/90 hover:text-white">
             <ChevronRight className="h-6 w-6" />
           </CarouselNext>
         </Carousel>
 
-        {/* Slide indicators */}
-        <div className="flex justify-center mt-8 space-x-2">
-          {slides.map((_, index) => (
+        {/* Enhanced slide indicators */}
+        <div className="flex justify-center mt-12 space-x-4">
+          {slides.map((slide, index) => (
             <div
               key={index}
-              className="w-3 h-3 rounded-full bg-primary/30 transition-all duration-300"
+              className={`w-4 h-4 rounded-full bg-gradient-to-r ${slide.gradient} opacity-40 hover:opacity-80 transition-all duration-300 cursor-pointer pulse-glow`}
             />
           ))}
         </div>
