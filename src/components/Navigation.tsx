@@ -34,36 +34,36 @@ const Navigation = () => {
       isScrolled ? 'glass-nav shadow-2xl' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          {/* Logo */}
+        <div className="flex justify-between items-center py-6">
+          {/* Left Logo */}
           <div className="flex items-center">
             <img 
-              src="/3step-logo.png" 
-              alt="3Step Tech India" 
-              className="h-12 w-auto floating-animation"
+              src="/logo-left.png" 
+              alt="Company Logo" 
+              className="logo-style floating-animation"
             />
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-12">
+          <div className="hidden lg:flex items-center space-x-16">
             {navItems.map((item, index) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className={`text-white/90 hover:text-white hover:text-glow transition-all duration-300 font-bold text-lg tracking-wider relative group stagger-${index + 1}`}
+                className={`text-white/90 hover:text-cyan-400 hover:text-glow transition-all duration-500 font-bold text-lg tracking-wider relative group stagger-${index + 1}`}
               >
                 {item.name}
-                <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 transition-all duration-500 group-hover:w-full rounded-full shadow-lg shadow-purple-500/50"></span>
+                <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400 transition-all duration-500 group-hover:w-full rounded-full shadow-lg shadow-blue-500/50"></span>
               </button>
             ))}
           </div>
 
-          {/* Secure Logo */}
+          {/* Right Logo */}
           <div className="hidden lg:flex items-center">
             <img 
-              src="/secure-logo.png" 
-              alt="Digitally Secure" 
-              className="h-10 w-auto pulse-glow"
+              src="/logo-right.png" 
+              alt="Security Badge" 
+              className="logo-style pulse-glow"
             />
           </div>
 
@@ -71,7 +71,7 @@ const Navigation = () => {
           <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white/90 hover:text-white transition-colors duration-300"
+              className="text-white/90 hover:text-cyan-400 transition-colors duration-300"
             >
               {isOpen ? <X size={28} strokeWidth={3} /> : <Menu size={28} strokeWidth={3} />}
             </button>
@@ -86,16 +86,21 @@ const Navigation = () => {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className={`block px-4 py-3 text-white/90 hover:text-white hover:text-glow transition-all duration-300 font-bold text-lg tracking-wider w-full text-left rounded-lg hover:bg-white/10 stagger-${index + 1}`}
+                  className={`block px-4 py-3 text-white/90 hover:text-cyan-400 hover:text-glow transition-all duration-300 font-bold text-lg tracking-wider w-full text-left rounded-lg hover:bg-blue-900/20 stagger-${index + 1}`}
                 >
                   {item.name}
                 </button>
               ))}
-              <div className="flex justify-center pt-4">
+              <div className="flex justify-center space-x-4 pt-4">
                 <img 
-                  src="/secure-logo.png" 
-                  alt="Digitally Secure" 
-                  className="h-8 w-auto pulse-glow"
+                  src="/logo-left.png" 
+                  alt="Company Logo" 
+                  className="h-8 w-auto logo-style"
+                />
+                <img 
+                  src="/logo-right.png" 
+                  alt="Security Badge" 
+                  className="h-8 w-auto logo-style"
                 />
               </div>
             </div>
